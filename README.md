@@ -114,3 +114,14 @@ docid = "mydoc-id"
 print(db.delete(docid=docid, rev=db.rev(docid)))  # Fetch the revision on the go
 # True
 ```
+
+### Find documents
+To find documents, selector json dic is specified
+```python
+selector = {
+    '_id' : { '$eq': 'you-want-find' }
+}
+result = db.find(selector=selector)
+
+# found documents are set 'docs' key element of result dict.
+print(len(result['docs'])) # count docs are found
